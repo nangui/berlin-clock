@@ -19,3 +19,5 @@ So what we want first is a way to get a textual representation of a Berlin Clock
 The change to using Berlin Time has gone so well that we've decided to introduce it everywhere, from the clocks on the microwaves to the company-approved wristwatches. Unfortunately, people are having trouble quickly deciphering the current time which is having a detrimental effect on productivity. As such, we need to create a converter that takes a Berlin Time and returns a Digital Time.
 
 **N-B:** *For the conversion from berlin time to digital time, the returned time takes hours and minutes into account but cannot give exact seconds.*
+
+[The Link for the Kata is here](https://agilekatas.co.uk/katas/BerlinClock-Kata)
