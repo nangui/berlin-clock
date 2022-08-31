@@ -1,0 +1,36 @@
+.circle {
+  border-radius: 50px;
+  width: 64px;
+  height: 64px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--clr-steel);
+}
+
+.circleColor {
+  border-radius: 50%;
+  width: min(100% - 12px);
+  height: min(100% - 12px);
+  background-color: var(--clr-red);
+}
+
+.rectangle {
+  width: 100px;
+  height: 38px;
+  background-color: var(--clr-gold);
+}
+
+.inversedRectangle {
+  width: 15px;
+  height: 38px;
+  background-color: var(--clr-black);
+}
+
+.rectangle,
+.inversedRectangle {
+  border-radius: 5px;
+}

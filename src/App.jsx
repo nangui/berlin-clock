@@ -1,32 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import { useContext } from 'react'
+import Flag from './components/Flag/Index'
 import './App.css'
+import Clock from './components/Clock/Index'
+import Converter from './components/Converter/Index'
+import useConverter from './hooks/useConverter'
+import { StoreContext } from './utils/store'
 
 function App() {
-  const [count, setCount] = useState(0)
 
+  const { time, setTime, result } = useContext(StoreContext)
+
+  const { hours, minutes, seconds } = useConverter()
+
+  const handleSetTime = (newTime) => {
+    if (newTime !== time) {
+      setTime(newTime)
+    }
+  }
+  
   return (
     <div className="App">
+      <h1>Berlin Clock</h1>
+{/* 
+      <Flag>
+        <Clock hours={hours} minutes={minutes} seconds={seconds} />
+      </Flag> */}
+
+      <Converter handler={handleSetTime} />
+
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        Resultat: { result }
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
   )
 }
