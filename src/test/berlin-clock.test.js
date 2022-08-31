@@ -29,6 +29,7 @@ describe('BerlinClock', () => {
       expect(berlinClock.singleHoursRow()).toEqual('OOOO')
       expect(berlinClock.singleHoursRow('23:59:59')).toEqual('RRRO')
       expect(berlinClock.singleHoursRow('02:04:00')).toEqual('RROO')
+      expect(berlinClock.singleHoursRow('06:04:00')).toEqual('ROOO')
       expect(berlinClock.singleHoursRow('08:23:00')).toEqual('RRRO')
       expect(berlinClock.singleHoursRow('14:35:00')).toEqual('RRRR')
     })
@@ -39,6 +40,7 @@ describe('BerlinClock', () => {
       expect(berlinClock.fiveHoursRow('02:04:00')).toEqual('OOOO')
       expect(berlinClock.fiveHoursRow('08:23:00')).toEqual('ROOO')
       expect(berlinClock.fiveHoursRow('16:35:00')).toEqual('RRRO')
+      expect(berlinClock.fiveHoursRow('10:35:00')).toEqual('RROO')
     })
 
     it('should take a second and turn it on the second light', () => {
