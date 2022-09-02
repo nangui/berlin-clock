@@ -21,7 +21,7 @@
 .rectangle {
   width: 100px;
   height: 38px;
-  background-color: var(--clr-gold);
+  background-color: var(--clr-black);
 }
 
 .inversedRectangle {

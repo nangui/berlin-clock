@@ -10,7 +10,7 @@ function App() {
 
   const { time, setTime, result } = useContext(StoreContext)
 
-  const { hours, minutes, seconds } = useConverter()
+  useConverter()
 
   const handleSetTime = (newTime) => {
     if (newTime !== time) {
@@ -21,10 +21,10 @@ function App() {
   return (
     <div className="App">
       <h1>Berlin Clock</h1>
-{/* 
+
       <Flag>
-        <Clock hours={hours} minutes={minutes} seconds={seconds} />
-      </Flag> */}
+        <Clock />
+      </Flag>
 
       <Converter handler={handleSetTime} />
 

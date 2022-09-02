@@ -1,9 +1,12 @@
+import { useContext } from 'react'
 import { useState } from 'react'
+import { StoreContext } from '../../utils/store'
 
 import classes from './Converter.module.css'
 
 const Converter = ({ handler }) => {
 
+  const {setResult} = useContext(StoreContext)
   const [ time, setTime ] = useState('')
 
   const handleChangeTime = (event) => {
@@ -14,6 +17,12 @@ const Converter = ({ handler }) => {
   const handleSubmit = (event) => {
     event.preventDefault()
     handler(time)
+  }
+
+  const resetForm = () => {
+    setTime('')
+    handler('')
+    setResult('')
   }
 
   return (
@@ -39,9 +48,12 @@ const Converter = ({ handler }) => {
           </div>
         </div>
 
-        <button type='submit' className={classes.button}>
-          Convert Time
-        </button>
+        <div style={{ display: 'flex', gap: '2rem', alignItems: 'center', marginTop: '1.2rem' }}>
+          <button type='submit' className={classes.button}>
+            Convert Time
+          </button>
+          <a href='#' onClick={resetForm}>Reinitialiser</a>
+        </div>
 
       </form>
 
