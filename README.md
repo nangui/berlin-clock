@@ -1,5 +1,7 @@
 # berlin-clock
 
+![interface of the all app](./public/berlin-clock.png "Text to show on mouseover")
+
 ## The React Project for Berlin Clock Challenge
 
 The Berlin Clock (Mengenlehreclock or Berlin Uhr) is a clock that tells the time using a series of illuminated coloured blocks, as you can see in the picture for this project.
