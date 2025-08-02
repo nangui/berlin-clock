@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useCallback } from 'react';
 import styled from 'styled-components';
-// import { gsap } from 'gsap';
+
 import { Particle } from '@/types';
 
 const ParticleCanvas = styled.canvas`

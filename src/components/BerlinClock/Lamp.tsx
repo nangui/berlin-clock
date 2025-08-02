@@ -184,7 +184,6 @@ const ParticleContainer = styled.div`
 
 export const Lamp: React.FC<LampProps> = ({
   state,
-  position: _position,
   size,
   onClick,
   disabled = false,

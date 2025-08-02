@@ -98,7 +98,6 @@ export function calculateLevelBonus(level: number, perfectChallenges: number, to
 export function calculateExperience(
   score: number,
   difficulty: Difficulty,
-  _challengeType: ChallengeType,
   performance: PerformanceMetrics
 ): number {
   const baseXP = score * 0.1; // 10% of score as base XP
@@ -181,8 +180,7 @@ export interface PlayerRank {
 export function calculatePlayerRank(
   totalScore: number,
   totalXP: number,
-  achievements: number,
-  _metrics: PerformanceMetrics
+  achievements: number
 ): PlayerRank {
   const ranks = [
     { name: 'Novice', title: 'Time Learner', minScore: 0, minXP: 0, minAchievements: 0 },

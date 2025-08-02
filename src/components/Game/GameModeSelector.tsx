@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { GameMode, Difficulty } from '@/types';
-// import { useGameStore } from '@/stores/gameStore';
+
 import { useSettingsStore } from '@/stores/settingsStore';
 
 const SelectorContainer = styled(motion.div)<{ $isDarkMode: boolean }>`

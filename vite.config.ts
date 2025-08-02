@@ -8,28 +8,12 @@ import path from 'path'
 export default defineConfig({
   plugins: [
     react(),
-    VitePWA({
+VitePWA({
       registerType: 'autoUpdate',
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
-        runtimeCaching: [
-          {
-            urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'google-fonts-cache',
-              expiration: {
-                maxEntries: 10,
-                maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
-              },
-              cacheKeyWillBeUsed: async ({ request }) => {
-                return `${request.url}`
-              }
-            }
-          }
-        ]
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}']
       },
-      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
+      includeAssets: ['favicon.ico'],
       manifest: {
         name: 'Berlin Clock Gamified',
         short_name: 'BerlinClock',
@@ -39,12 +23,7 @@ export default defineConfig({
         display: 'standalone',
         icons: [
           {
-            src: 'pwa-192x192.png',
-            sizes: '192x192',
-            type: 'image/png'
-          },
-          {
-            src: 'pwa-512x512.png',
+            src: '/berlin-clock.png',
             sizes: '512x512',
             type: 'image/png'
           }
@@ -76,7 +55,7 @@ export default defineConfig({
     }
   },
   build: {
-    target: 'es2020',
+    target: 'esnext',
     minify: 'terser',
     sourcemap: true,
     rollupOptions: {
