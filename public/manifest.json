@@ -1,0 +1,75 @@
+{
+  "name": "Berlin Clock Gamified",
+  "short_name": "BerlinClock",
+  "description": "An innovative, gamified Berlin Clock learning experience with stunning 3D animations and multiple game modes.",
+  "version": "1.0.0",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#1a1a2e",
+  "background_color": "#0f0f1a",
+  "lang": "en",
+  "scope": "/",
+  "categories": ["education", "games", "utilities"],
+  "icons": [
+    {
+      "src": "/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/pwa-512x512.png", 
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180", 
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Live Clock",
+      "description": "View the current time in Berlin Clock format",
+      "url": "/?view=clock",
+      "icons": [
+        {
+          "src": "/shortcut-clock.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Practice Mode",
+      "description": "Practice reading the Berlin Clock",
+      "url": "/?mode=practice",
+      "icons": [
+        {
+          "src": "/shortcut-practice.png",
+          "sizes": "96x96", 
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Berlin Clock main interface"
+    },
+    {
+      "src": "/screenshot-narrow.png", 
+      "sizes": "640x1136",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Berlin Clock mobile view"
+    }
+  ]
+}
