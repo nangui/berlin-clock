@@ -11,7 +11,23 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}']
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
+        runtimeCaching: [
+          {
+            urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'google-fonts-cache',
+              expiration: {
+                maxEntries: 10,
+                maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
+              },
+              cacheKeyWillBeUsed: async ({ request }) => {
+                return `${request.url}`
+              }
+            }
+          }
+        ]
       },
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
       manifest: {
@@ -47,26 +63,35 @@ export default defineConfig({
       '@/assets': path.resolve(__dirname, './src/assets')
     }
   },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'three', 'gsap', 'framer-motion']
+  },
   test: {
     globals: true,
     environment: 'happy-dom',
     coverage: {
       provider: 'istanbul',
       reporter: ['text', 'json', 'html'],
-      includeSource: ['src/**/*.{js,ts,jsx,tsx}']
+      include: ['src/**/*.{js,ts,jsx,tsx}']
     }
   },
   build: {
-    target: 'esnext',
+    target: 'es2020',
     minify: 'terser',
+    sourcemap: true,
     rollupOptions: {
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom'],
           three: ['three', '@react-three/fiber', '@react-three/drei'],
-          animations: ['gsap', 'framer-motion', 'react-spring']
+          animations: ['gsap', 'framer-motion', 'react-spring'],
+          utils: ['date-fns', 'clsx', 'zustand']
         }
       }
     }
+  },
+  server: {
+    port: 3000,
+    host: true
   }
 })
